@@ -1,0 +1,11 @@
+edit books (modify AddBook)
+
+remove books (use EditBook's lister, also create remove method in Peers)
+
+real searches (work on BookPeer)
+
+add graphics/clean html
+
+integrate default and custom administration
+
+mail

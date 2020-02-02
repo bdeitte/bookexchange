@@ -1,0 +1,84 @@
+# DROP TABLE if exists Visitor;
+# DROP TABLE if exists area;
+# DROP TABLE if exists class;
+# DROP TABLE if exists condition;
+# DROP TABLE if exists book;
+# DROP TABLE if exists booklist;
+
+drop table Visitor;
+
+CREATE TABLE Visitor (
+    VISITORID INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+
+    LOGINID     varchar (32) NOT NULL,
+    PASSWORD_VALUE    varchar (32),
+
+    FIRST_NAME  varchar (99),
+    LAST_NAME   varchar (99),
+    ADDRESS1    varchar (255),
+    ADDRESS2    varchar (255),
+    CITY        varchar (255),
+    STATE       varchar (32),
+    POSTALCODE  varchar (32),
+    COUNTRY     varchar (99),
+    CITIZENSHIP varchar (32),
+    PHONE       varchar (32),
+    ALTPHONE    varchar (32),
+    FAX         varchar (32),
+    CELL        varchar (32),
+    PAGER       varchar (32),
+    EMAIL       varchar (99),
+
+    MODIFIED    timestamp,
+    CREATED     datetime,
+    LASTLOGIN   timestamp,
+    OBJECTDATA  mediumblob,
+
+    UNIQUE (LOGINID)
+);
+
+insert into Visitor (LOGINID, PASSWORD_VALUE, MODIFIED, CREATED) 
+    values ('test', 'turbine', null, null );
+
+CREATE TABLE area (
+    AREAID INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    AREA VARCHAR(255) NOT NULL,
+    UNIQUE(AREA)
+);
+
+insert into area (AREA) values ("No Area Selected");
+insert into area (AREA) values ("Test Area");
+
+CREATE TABLE condition (
+    CONDITIONID INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    CONDITION VARCHAR(255) NOT NULL,
+    UNIQUE(CONDITION)
+);
+
+insert into condition (CONDITION) values ("Barely Used");
+insert into condition (CONDITION) values ("Excellent");
+insert into condition (CONDITION) values ("Good");
+insert into condition (CONDITION) values ("Poor");
+
+CREATE TABLE book (
+	BOOKID		INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	TITLE     	VARCHAR(255),
+	AUTHOR		VARCHAR(255),
+
+    AREAID INT UNSIGNED NOT NULL,
+    CONDITIONID INT UNSIGNED NOT NULL,
+
+	ISBN      	VARCHAR(65),
+	OTHER     	VARCHAR(255),
+	PRICE     	VARCHAR(65)
+);
+
+CREATE TABLE booklist (
+	BOOKLISTID INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	VISITORID INT UNSIGNED NOT NULL,
+	BOOKID INT UNSIGNED NOT NULL,
+
+        CREATED     date,
+
+	UNIQUE (BOOKID)
+);

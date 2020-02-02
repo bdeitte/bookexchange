@@ -1,0 +1,58 @@
+REQUIRED PACKAGES:
+
+The program uses the Turbine framework.  The latest version is available at:
+	http://www.working-dogs.com/daily/
+
+These packages must also be in your servlet classpath:
+	ECS 1.1 or later: http://java.apache.org/ecs/
+
+	Village 1.1 or later: http://www.working-dogs.com/village/
+
+	JavaMail and Activation: http://java.sun.com/products/javamail/
+
+	JSDK 2.0 or later: http://java.sun.com/products/servlets/download.html
+
+In addition to these packages, a servlet engine is required.  Two popular choices are
+	JServ: http://jserve.apache.org
+	JRun: http://www.jrun.com
+	
+COMPILING:
+
+To compile, use the source in src folder.  Otherwise, pre-compiled classes are
+available in the bin folder.
+
+INSTALLING:
+
+Edit your TurbineResources.properties file (that you got from the Turbine 
+distribution) and change the following properties:
+
+    module.packages=org.apache.turbine
+    TO
+    module.packages=com.deitte.bookexchange.com,org.apache.turbine
+
+    screen.homepage=Login
+    TO
+    screen.homepage=MainMenu
+    
+    If you are using MySQL, then set these values appropriately
+    database.default.driver=org.gjt.mm.mysql.Driver
+    database.default.url=jdbc:mysql://localhost/bookexchange
+    database.default.username=
+    database.default.password=
+
+Next install the database and database schema. The first schema is located in 
+the Turbine distribution.  
+    
+    mysqladmin create bookexchange
+    mysql bookexchange < MySQL_users_roles_permissions.sql
+    mysql bookexchange < bookexchange.schema
+
+Make sure your servlet engine is started, and then then go to this URL:
+    
+    http://www.server.com/zone/Turbine
+    
+    Where www.server.com is your server.
+    Where zone == your zone that you put Turbine into.
+
+
+If you're having problems, please email bdeitte@cs.uiowa.edu.
