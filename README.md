@@ -1,4 +1,4 @@
-Other than this README update, these are the original files from 1999.  This was a book changes used on the University of Iowa campus at that time, with design from Dave Selden.  Once in awhile I send out these files to developers I know, as an example of some really old code that I wrote, just for the amusement factor.  Using any of this code for any other purpose may be hazardous to your health.
+Other than this README update, these are the original files from 1999.  This was an online book exchange used on the University of Iowa campus for a few years, with design from Dave Selden.  Once in awhile I send out these files to developers I know, as an example of some really old code that I wrote, just for the amusement factor.  Using any of this code for any other purpose may be hazardous to your health.
 
 From the original README:
 
